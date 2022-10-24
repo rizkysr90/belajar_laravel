@@ -11,7 +11,6 @@
     @include('partials.navbar')
     <div>
         @yield('children')
-
     </div>
 </body>
 </html>

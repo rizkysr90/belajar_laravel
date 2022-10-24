@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +22,18 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+// Route::get('/semua-barang', [BarangController::class,'index']);
+
+// // Dynamic Route
+// Route::get('/barang/{slug}',[BarangController::class,'show']);
+
+// // Group Route
+// Route::group(['prefix' => 'admin'], function() {
+//     Route::get('/dashboard',function() {
+//         echo "Ini routes dasbor yang diakses via group";
+//     });
+    
+// });
+
+Route::get('/products',[ProductsController::class,'getAll']);
