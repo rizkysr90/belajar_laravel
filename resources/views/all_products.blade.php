@@ -11,14 +11,22 @@
         </div>
         </div>
     </div>
-    <div class="mx-4 my-10 flex">
+    <div class="mx-4 my-10 flex flex-wrap">
         @foreach ($products as $product)
-            <div class="card basis-3/12 bg-base-100 shadow-xl">
+            <div class="card card-compact basis-1/5 grow shrink bg-base-100 shadow-xl m-4">
                 <figure><img src={{$product['url_image']}} alt="gambar produk" /></figure>
                 <div class="card-body">
                 <h2 class="card-title">{{$product['name']}}</h2>
-                <p>{{$product['description']}}</p>
-                <div class="card-actions justify-end">
+                <div class="bg-base-200 p-2 rounded-md">
+                    <p>Stok : {{ $product['stock'] }}</p>
+                    <div>
+                        <p>Modal : {{ $product['buy_price'] }}
+                        <p>Jual : {{ $product['sale_price'] }}
+                    </div>
+
+                    <p class="mt-4">Deskripsi : <br>{{$product['description']}}</p>
+                </div>
+                <div class="card-actions justify-end mt-2">
                     <button class="btn btn-primary">Lihat</button>
                 </div>
                 </div>
