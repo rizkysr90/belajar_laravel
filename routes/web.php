@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,8 @@ Route::get('/about', function () {
 // });
 
 Route::get('/products',[ProductsController::class,'getAll']);
+
+// Route for employee
+Route::get('/view_employee',[EmployeeController::class,'index']);
+Route::get('/delete_employee',[EmployeeController::class,'delete']);
+Route::get('/edit_employee',[EmployeeController::class,'edit']);
