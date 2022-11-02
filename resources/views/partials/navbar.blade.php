@@ -7,12 +7,13 @@
       <li><a href = "/products">Products</a></li>
       <li tabindex="0">
         <a>
-          Menu 
+          UTS 
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
         </a>
         <ul class="p-2 bg-neutral">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
+          <li><a href='/view_employee'>View Employee</a></li>
+          <li><a href="/delete_employee">Delete Employee</a></li>
+          <li><a href = "/edit_employee">Edit Employee</a></li>
         </ul>
       </li>
       <li><a>Another Menu</a></li>

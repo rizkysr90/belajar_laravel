@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('partials.navbar')
-    <div>
+    <div class="">
         @yield('children')
     </div>
 </body>
