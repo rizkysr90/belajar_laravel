@@ -14,7 +14,7 @@
     <div class="mx-4 my-10 flex flex-wrap">
         @foreach ($products as $product)
             <div class="card card-compact basis-1/5 grow shrink bg-base-100 shadow-xl m-4">
-                <figure><img src={{$product['url_image']}} alt="gambar produk" /></figure>
+                <figure><img class ="h-40 object-cover w-full" src={{$product['url_image']}} alt="gambar produk" /></figure>
                 <div class="card-body">
                 <h2 class="card-title">{{$product['name']}}</h2>
                 <div class="bg-base-200 p-2 rounded-md">

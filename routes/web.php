@@ -38,6 +38,12 @@ Route::get('/about', function () {
 // });
 
 Route::get('/products',[ProductsController::class,'getAll']);
+Route::get('/simpan_test',[ProductsController::class,'simpan_get']);
+Route::get('/hapus_test/{id}',[ProductsController::class,'hapus_get']);
+Route::get('/update_test/{id}',[ProductsController::class,'update_get']);
+
+
+
 
 // Route for employee
 Route::get('/view_employee',[EmployeeController::class,'index']);
