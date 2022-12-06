@@ -43,7 +43,14 @@ Route::get('/hapus_test/{id}',[ProductsController::class,'hapus_get']);
 Route::get('/update_test/{id}',[ProductsController::class,'update_get']);
 
 
+Route::group(['prefix' => 'products'], function() {
+    Route::get('/create', [ProductsController::class, 'create']);
+    Route::post('/store', [ProductsController::class, 'store']);
+    Route::get('/delete/{id}',[ProductsController::class, 'destroy']);
+    Route::get('/edit/{id}',[ProductsController::class, 'edit']);
 
+
+});
 
 // Route for employee
 Route::get('/view_employee',[EmployeeController::class,'index']);
