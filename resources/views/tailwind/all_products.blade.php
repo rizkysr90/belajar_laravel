@@ -30,7 +30,7 @@
                         <a class="btn btn-xs grow btn-info m-1" href="products/edit/{{$product['id']}}">Edit </a>
                         <a class="btn btn-xs grow btn-warning m-1" href='products/delete/{{$product['id']}}'>Delete </a>
                     </div>
-                    <button class="btn btn-xs w-full btn-secondary">Lihat</button>
+                    <a class="btn btn-xs w-full btn-secondary" href='products/detail/{{$product['id']}}' >Lihat</a>
                 </div>
                 </div>
             </div>

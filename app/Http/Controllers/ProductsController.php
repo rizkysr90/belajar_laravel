@@ -39,8 +39,30 @@ class ProductsController extends Controller
 
         return view('tailwind.edit_products',["data" => $data]);
     }
+    public function update($id,Request $request) {
+        $data = Products::where('id', $id)
+                ->update([
+                    "name" => $request->product_name,
+                    "description" => $request->description,
+                    "buy_price" => $request->buy_price,
+                    "sale_price" => $request->sale_price,
+                    "stock" => $request->stock,
+                    "url_image" => $request->url_image
+                ]);
+        if ($data) {
+            Alert::success('Berhasil', 'Produk berhasil diupdate');
+        }
+        return redirect('/products');
+        
+        
+    }
+    public function view($id) {
+        $data = Products::where('id',$id)->get();
+        
+        return view('tailwind.detail_products',["data" => $data]);
+    }
     public function getAll(){
-
+        
         // dd($yourdata) untuk debugging
         return view('tailwind.all_products',
             [

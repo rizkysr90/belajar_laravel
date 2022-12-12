@@ -9,7 +9,7 @@
             </ul>
         </div>
         <h4 class="font-bold text-2xl mb-4">Edit Data</h4>
-        {!! Form::open(array('url' => url(''), 'method' => 'post', 'class' => 'form-horizontal')) !!}
+        {!! Form::open(array('url' => url("products/update/{$data[0]->id}"), 'method' => 'post', 'class' => 'form-horizontal')) !!}
             {!!Form::label('name', 'Product Name', array('class' => 'block mb-2')) !!}
             <input type="text" id="name" name="product_name" placeholder="Masukkan nama produk" value="{{$data[0]->name}}" class="input w-full max-w-xs mb-4" />
             {!!Form::label('url_image', 'Url Gambar', array('class' => 'block mb-2')) !!}
