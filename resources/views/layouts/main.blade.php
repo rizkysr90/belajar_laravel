@@ -14,11 +14,20 @@
         <div class="drawer-content flex flex-col bg-base-100">
           <!-- Page content here -->
           <div class="flex bg-primary justify-between items-center py-4 px-4">
-            <h3 class="text-white text-3xl ml-10 hidden lg:block">Hi, Welcome Rizki!</h3>
-            <h3 class="text-white text-lg ml-2  lg:hidden">Hi, Welcome Rizki!</h3>
-              <label for="my-drawer-2" class="btn btn-primary bg-secondary drawer-button lg:hidden">
-                Open
-              </label>
+            <h3 class="text-white text-3xl ml-10 ">Hi, Welcome back {{ auth()->user()->firstname }}</h3>
+            <label for="my-drawer-2" class="btn btn-primary bg-secondary drawer-button lg:hidden">
+              Open
+            </label>
+            @if (auth()->user()->role  === 'superadmin')
+              <p>Ini admin ges</p>
+            @elseif (auth()->user()->role === 'admin')
+              <p>Ini bukan superadmin</p>
+            @endif
+           
+            <form method="post" action="/users/logout">
+                @csrf
+                <button class="btn btn-warning" type="submit"> Logout </button>
+            </form>
           </div>
           @yield('content')
         
@@ -36,15 +45,43 @@
                     <div class="collapse-content"> 
                         <li><a class=" text-sm" href="/products">Semua Produk</a></li>
                         <li><a class=" text-sm" href="/products/create">Tambah Produk</a></li>
-
                     </div>
                   </div>
-                {{-- <div>
-                    <h3 class="text-white font-bold text-medium mb-4">Manajemen Produk</h3>
-                </div>
-                <li><a class="text-white text-sm" href="/products">Semua Produk</a></li>
-                <li><a class="text-white text-sm" href="/products">Tambah Produk</a></li> --}}
-
+                  <div class="collapse bg-base-100 rounded-lg mt-4">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title text-lg font-medium">
+                      Manajemen Pembelian
+                    </div>
+                    <div class="collapse-content"> 
+                        <li><a class=" text-sm" href="/purchases">Semua Pembelian</a></li>
+                        <li><a class=" text-sm" href="/purchases/create">Tambah Pembelian</a></li>
+                        <li><a class=" text-sm" href="/suppliers">Semua Supplier</a></li>
+                        <li><a class=" text-sm" href="/suppliers/create">Tambah Supplier</a></li>
+                    </div>
+                  </div>
+                  @if (auth()->user()->role  === 'superadmin')
+                  <div class="collapse bg-base-100 rounded-lg mt-4">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title text-lg font-medium">
+                      Manajemen Kasir 
+                    </div>
+                    <div class="collapse-content"> 
+                        <li><a class=" text-sm" href="/users/kasir">Semua Kasir</a></li>
+                        <li><a class=" text-sm" href="/users/kasir/register">Tambah Kasir</a></li>
+                    </div>
+                  </div>
+                  @endif
+                  @if (auth()->user()->role  === 'superadmin')
+                  <div class="collapse bg-base-100 rounded-lg mt-4">
+                    <input type="checkbox" /> 
+                    <div class="collapse-title text-lg font-medium">
+                      Manajemen Keuangan
+                    </div>
+                    <div class="collapse-content"> 
+                        <li><a class=" text-sm" href="/purchases">Penghasilan</a></li>
+                    </div>
+                  </div>
+                  @endif
             </ul>
 
             

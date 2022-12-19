@@ -61,12 +61,15 @@ class ProductsController extends Controller
         
         return view('tailwind.detail_products',["data" => $data]);
     }
-    public function getAll(){
-        
+    public function getAll(Request $request){
+        $products = Products::orderBy('name');
         // dd($yourdata) untuk debugging
+        if ($request->search) {
+            $products->where('name', 'like', '%'. $request->search . '%');
+        }
         return view('tailwind.all_products',
             [
-                "products" => Products::all()
+                "products" => $products->get()
             ]
         );
     }
